@@ -1,0 +1,273 @@
+3.Class
+
+	3.1 features
+
+	cool class definition consist of a list of feature:
+
+		1 attribute (scope local to the class)
+		2 method (global scope)	
+
+		* the only to access to object state in cool is through methods.	
+
+		* feature names begin with lowercase letters.	
+
+		* no multiple method name, attributes name 
+			(but can be attributes a and method a() )	
+
+		*special variable self refers to the object on which the method was dispatched	
+
+		*use new to generates a fresh object of class	
+
+	3.2 inheritance	
+
+	the semantics of C inherits P is that C has all of the features defined in P in addition to its own features.	
+
+		* it is illegal to redefine attribute names.But for type safty,you need to keep them return the same type	
+
+		* single inheritance(no circal inheritance)
+
+4 Types
+
+if a method or variable expects a value of type P,then any value of type C may be used instead.
+
+C <= P means C inheritance from P
+
+	4.1 SELF_TYPE
+		the type of 'self' variable.
+
+		* avoiding specifying a fixed final type which didn't know at the time of programming
+
+	4.2 Type Checking
+		using the type declarations for identifiers supplied by the programmer the type checker infers a type for every expression in the program.
+
+		1 static type: the type assigned by the type checker
+
+		2 dynamic types: the type evaluate during run time.
+
+		* in general the static and dynamic types may be different.
+
+		* We require the type checker's static types be sound with respect to the dynamic types.
+		(
+			let D be the dynamic type and S be the static type
+			this condition infers that:
+				D <= S
+		)
+
+5 Attributes
+
+form:
+	<id> : <types> ['<-' <expr>]
+
+* Inherited attributes cannot be redefined.
+
+	5.1 Void
+		void type equal to NULL in C.
+		void is used as the default initialization
+
+		* the way to create a void value is:
+			
+			1 to declare a variable of some class 'other than' {Int,string, bool }(which initialized specially) and allow the default initialization to occur
+			
+			2 to store the result of a while loop
+
+		* isvoid expr: tests whether a value is void.
+
+6 Methods
+
+form:
+	<id>(<id>: <type>,...,<id>: <type>):type{
+		<expr>
+	}
+
+* if C <= P and C.f() override P.f() then:
+	
+	{
+	the number of arguments
+	the types of formal parameters
+	the return type
+	}
+	of C.f() and P.f() must be exactly the same!!!
+
+7 Expressions
+
+	7.1 constants
+		boolean
+		integer
+		string(1024 characters long)
+
+	7.2 Identifiers
+
+	7.3 Assignment
+		form:
+			<id> '<-' <expr>
+
+		* the static type of a assignment is the static type of <expr>
+
+	7.4 Dispatch
+		form:
+			<expr>'.'<id>(<expr1>,...,<exprN>)
+
+		* the arguments are evaluated in left-to-right orderd from <exp1> to <exprN>
+
+		* the object <expr> evaluated after the arguments.
+
+		other form:
+
+			 <id>(<expr1>,...,<exprN>)
+
+			 <expr>@<type>.id(<expr1>,...,<exprN>)
+
+			*the second one is the way of accessing methods of parent class that have been hidden by redefinitions in chile class.
+
+	7.5 Cinditionals
+		form:
+		 	if <expr> then <expr T> else <expr F> fi
+        
+        * the predicate must have static type Bool.
+
+        * the static type of if conditions is the least type of <expr T> and <expr F>
+
+    7.6 Loops
+    	form:
+    		while <expr> loop <expr> pool
+
+    	* the static type of a loop expression is 'object'
+
+    7.7 Bolcks
+    	form:
+    		{<expr 1>;...<expr N>;}
+
+    	* the value of the block is the value of last expression
+
+    	* ';' is used as terminator in lists of expressions(eg. block syntax above) not as expression separators.
+
+    7.8 Let
+    	form:
+    		let <id 1>:<type 1> [ '<-' <expr 1>],...,<id N>:<type N> ['<-' <exprN>] in <expr>
+
+    	* The let identifiers <id1>,...,<idn> are visible in the body of the let. Furthermore, identifiers <id1>,...,<idk> are visible in the initialization of <idm> for any m > k.
+
+    	* if an identifier is defined multiple times in a let, later bindings hide earlier ones.
+
+    	* the <expr> of a let extends as far as the grammar allows
+
+    7.9 case
+    	form:
+    		case <expr0> of
+    			<id1> : <type1> => <expr>;
+    			...
+    			<idn> : <typen> => <exprn>;
+    		esac
+
+    	* the case returned as soon as it find one typek such that type of <expr0> <= typek and evaluate <exprk>
+
+    	* x: object => ... is the same effect of a 'otherwise'
+
+    	* if static type of e is P but you know that e's dynamic type is C(C<=P) you may want to spacify this to type checker:
+    		case e of
+    			x : C => x <- e
+    	so that static type of x is C.
+
+    7.10 New
+    	form:
+    		new <type>
+
+    	* if the type is SELF_TYPE, then the value is a fresh object of the class of self in the current scope.
+
+    7.11 Isvoid
+    	The expression:
+    		is void expr
+
+    	true if expr is void otherwise false
+
+    7.12 Arithmetic and Comparison  
+    	syntax:
+	    	expr1 <op> expr2
+    	
+    	Arithmetic op :
+	    	{+ - * /}
+
+	    * expr1 and expr2 must be type Int
+	    * the static type of the expression is Int(cool has only integer division)!	
+
+	    Comparation op :
+	    	{< <= =}
+	    * '< ,<= ' only can compare Int and has the result as a Bool
+
+	    * '=' can compare Int , Bool , or String(basic objects). The static type of expr1 and expr2 should be the same.
+
+	    * '=' can compare any non-basic objects by simply checks for pointer equality(whether the memory address of the objects  are the same).
+
+	    ~<expr> ???
+	    not <expr>
+
+8 Basic Class
+	
+	8.1 Object
+		root of the inheritance tree
+		
+		methods:
+			abort : Object (halt the programme with an error message)
+			type_name() : string
+			copy() : SELF_TYPE (shallow copy)
+
+	8.2 IO
+		provides the following methods for performing simple input and output operations:
+
+		methods:
+			out_string(x : string) : SELF_TYPE
+
+			out_int(x : int): SELF_TYPE
+
+			in_string() : String
+			in_int() : Int
+
+		* a class can make use of the method in the IO class by inheriting from IO. It is an error to redefine the IO class.
+
+	8.3 Int
+		* default initialization is 0
+
+	8.4 String
+		method:
+			length() : Int 
+
+			concat(s:String) : String
+			* returns a string by connecting s after self
+
+			substr(i:Int,l:Int) : String
+
+	8.5 Bool
+
+		* default initialization as false
+		* error to inherit from or redifine Bool.
+
+9 Main Class
+	
+
+
+
+
+    	
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
