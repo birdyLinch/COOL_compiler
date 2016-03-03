@@ -1,0 +1,226 @@
+*** The reference
+
+--- Yours
+
+***************
+
+*** 7,13 ****
+
+  # Shift under term # to state #
+  # Current token is #
+  # Reduce with prod # [NT=3, SZ=0]
+! # Reduce rule: top state 7, lhs sym 3 -> state 153
+  # Goto state #
+  # Shift under term # to state #
+  # Current token is #
+--- 7,13 ----
+
+  # Shift under term # to state #
+  # Current token is #
+  # Reduce with prod # [NT=3, SZ=0]
+! # Reduce rule: top state 7, lhs sym 3 -> state 117
+  # Goto state #
+  # Shift under term # to state #
+  # Current token is #
+***************
+
+*** 25,30 ****
+
+--- 25,31 ----
+
+  # Attempting error recovery
+  # Finding recovery state on stack
+  # Pop stack by one, state was # 5
++ # Pop stack by one, state was # 1
+  # Recover state found (#)
+  # Shifting on error to state #
+  # Trying to parse ahead
+***************
+
+*** 38,109 ****
+
+  # Trying to parse ahead
+  # Consuming Symbol #
+  # Trying to parse ahead
+- # Parse-ahead shifts Symbol # into state #
+- # Parse-ahead reduces: handle size = 2 lhs = # from state #
+- # Goto state #
+- # Parse-ahead reduces: handle size = 2 lhs = # from state #
+- # Goto state #
+- # Parse-ahead shifts Symbol # into state #
+- # Parse-ahead shifts Symbol # into state #
+- # Parse-ahead ok, going back to normal parse
+- # Reparsing saved input with actions
+- # Current Symbol is #
+- # Current state is #
+- # Shift under term # to state #
+- # Current Symbol is #
+- # Reduce with prod # [NT=2, SZ=2]
+- # Goto state #
+- # Reduce with prod # [NT=1, SZ=2]
+- # Goto state #
+- # Shift under term # to state #
+- # Current Symbol is #
+- # Shift under term # to state #
+- # Completed reparse
+- # Shift under term # to state #
+- # Current token is #
+- "bad.cl", line 19: parse error at or near OBJECTID = a
+- # Attempting error recovery
+- # Finding recovery state on stack
+- # Pop stack by one, state was # 8
+- # Pop stack by one, state was # 6
+- # Pop stack by one, state was # 5
+- # Recover state found (#)
+- # Shifting on error to state #
+- # Trying to parse ahead
+  # Consuming Symbol #
+- # Trying to parse ahead
+- # Consuming Symbol #
+- # Trying to parse ahead
+- # Consuming Symbol #
+- # Trying to parse ahead
+- # Parse-ahead shifts Symbol # into state #
+- # Parse-ahead reduces: handle size = 2 lhs = # from state #
+- # Goto state #
+- # Parse-ahead reduces: handle size = 2 lhs = # from state #
+- # Goto state #
+- # Parse-ahead shifts Symbol # into state #
+- # Parse-ahead shifts Symbol # into state #
+- # Parse-ahead ok, going back to normal parse
+- # Reparsing saved input with actions
+- # Current Symbol is #
+- # Current state is #
+- # Shift under term # to state #
+- # Current Symbol is #
+- # Reduce with prod # [NT=2, SZ=2]
+- # Goto state #
+- # Reduce with prod # [NT=1, SZ=2]
+- # Goto state #
+- # Shift under term # to state #
+- # Current Symbol is #
+- # Shift under term # to state #
+- # Completed reparse
+- "bad.cl", line 23: parse error at or near OBJECTID = inherts
+- # Attempting error recovery
+- # Finding recovery state on stack
+- # Pop stack by one, state was # 6
+- # Pop stack by one, state was # 5
+- # Recover state found (#)
+- # Shifting on error to state #
+  # Trying to parse ahead
+  # Consuming Symbol #
+  # Trying to parse ahead
+--- 39,45 ----
+
+***************
+
+*** 113,161 ****
+
+  # Trying to parse ahead
+  # Consuming Symbol #
+  # Trying to parse ahead
+! # Parse-ahead shifts Symbol # into state #
+! # Parse-ahead reduces: handle size = 2 lhs = # from state #
+! # Goto state #
+! # Parse-ahead reduces: handle size = 2 lhs = # from state #
+! # Goto state #
+! # Parse-ahead shifts Symbol # into state #
+! # Parse-ahead shifts Symbol # into state #
+! # Parse-ahead ok, going back to normal parse
+! # Reparsing saved input with actions
+! # Current Symbol is #
+! # Current state is #
+! # Shift under term # to state #
+! # Current Symbol is #
+! # Reduce with prod # [NT=2, SZ=2]
+! # Goto state #
+! # Reduce with prod # [NT=1, SZ=2]
+! # Goto state #
+! # Shift under term # to state #
+! # Current Symbol is #
+! # Shift under term # to state #
+! # Completed reparse
+! # Shift under term # to state #
+! # Current token is #
+! # Shift under term # to state #
+! # Current token is #
+! # Shift under term # to state #
+! # Current token is #
+! "bad.cl", line 28: parse error at or near ';'
+! # Attempting error recovery
+! # Finding recovery state on stack
+! # Pop stack by one, state was # 10
+! # Pop stack by one, state was # 9
+! # Pop stack by one, state was # 8
+! # Pop stack by one, state was # 6
+! # Pop stack by one, state was # 5
+! # Recover state found (#)
+! # Shifting on error to state #
+  # Trying to parse ahead
+! # Parse-ahead shifts Symbol # into state #
+! # Parse-ahead reduces: handle size = 2 lhs = # from state #
+! # Goto state #
+! # Parse-ahead reduces: handle size = 2 lhs = # from state #
+! # Goto state #
+  # Parse-ahead reduces: handle size = 1 lhs = # from state #
+  # Goto state #
+  # Parse-ahead shifts Symbol # into state #
+--- 49,86 ----
+
+  # Trying to parse ahead
+  # Consuming Symbol #
+  # Trying to parse ahead
+! # Consuming Symbol #
+  # Trying to parse ahead
+! # Consuming Symbol #
+! # Trying to parse ahead
+! # Consuming Symbol #
+! # Trying to parse ahead
+! # Consuming Symbol #
+! # Trying to parse ahead
+! # Consuming Symbol #
+! # Trying to parse ahead
+! # Consuming Symbol #
+! # Trying to parse ahead
+! # Consuming Symbol #
+! # Trying to parse ahead
+! # Consuming Symbol #
+! # Trying to parse ahead
+! # Consuming Symbol #
+! # Trying to parse ahead
+! # Consuming Symbol #
+! # Trying to parse ahead
+! # Consuming Symbol #
+! # Trying to parse ahead
+! # Consuming Symbol #
+! # Trying to parse ahead
+! # Consuming Symbol #
+! # Trying to parse ahead
+! # Consuming Symbol #
+! # Trying to parse ahead
+! # Consuming Symbol #
+! # Trying to parse ahead
+! # Consuming Symbol #
+! # Trying to parse ahead
+  # Parse-ahead reduces: handle size = 1 lhs = # from state #
+  # Goto state #
+  # Parse-ahead shifts Symbol # into state #
+***************
+
+*** 164,175 ****
+
+  # Reparsing saved input with actions
+  # Current Symbol is #
+  # Current state is #
+- # Shift under term # to state #
+- # Current Symbol is #
+- # Reduce with prod # [NT=2, SZ=2]
+- # Goto state #
+- # Reduce with prod # [NT=1, SZ=2]
+- # Goto state #
+  # Reduce with prod # [NT=0, SZ=1]
+  # Goto state #
+  # Shift under term # to state #
+--- 89,94 ----
+
